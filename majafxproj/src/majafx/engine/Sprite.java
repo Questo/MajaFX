@@ -18,6 +18,9 @@ public abstract class Sprite {
     
     public boolean isDead = false;
     
+    /**
+     * Update velocity or animation.
+     */
     public abstract void update();
     
     public boolean collide(Sprite other) {

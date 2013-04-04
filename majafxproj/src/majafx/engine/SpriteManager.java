@@ -13,20 +13,26 @@ import java.util.Set;
  */
 public class SpriteManager {
     
-    private static final List SPRITE_LIST = new ArrayList<>();
-    private static final List COLLISION_LIST = new ArrayList<>();
-    private static final Set DEAD_SPRITES = new HashSet<>();
+    private final static List<Sprite> SPRITE_LIST = new ArrayList<Sprite>();
+    private static final List<Sprite> COLLISION_LIST = new ArrayList<>();
+    private static final Set<Sprite> DEAD_SPRITES = new HashSet<>();
     
     public void addSprites(Sprite... sprites) {
-        SPRITE_LIST.add(Arrays.asList(sprites));
+        SPRITE_LIST.addAll(Arrays.asList(sprites));
     }
     
     public void removeSprites(Sprite... sprites) {
-        SPRITE_LIST.remove(Arrays.asList(sprites));
+        SPRITE_LIST.removeAll(Arrays.asList(sprites));
     }
     
     public void addDeadSprites(Sprite... sprites) {
-        DEAD_SPRITES.add(Arrays.asList(sprites));
+        // Sometimes we want to have a sprite massacre
+        if(sprites.length > 1) {
+            DEAD_SPRITES.addAll(Arrays.asList(sprites));
+        }
+        else { // and sometimes just one dies
+            DEAD_SPRITES.add(sprites[0]);
+        }
     }
     
     /**
@@ -45,15 +51,15 @@ public class SpriteManager {
         DEAD_SPRITES.clear();
     }
     
-    public List getAllSprites() {
+    public List<Sprite> getAllSprites() {
         return SPRITE_LIST;
     }
     
-    public Set getDeadSprites() {
+    public Set<Sprite> getDeadSprites() {
         return DEAD_SPRITES;
     }
     
-    public List getCollisions() {
+    public List<Sprite> getCollisions() {
         return COLLISION_LIST;
     }
     

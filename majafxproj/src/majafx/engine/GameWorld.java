@@ -42,7 +42,8 @@ public abstract class GameWorld {
     }
     
     /**
-     * Initialize the game world by updating the primaryStage
+     * Initialize the game world by updating the primaryStage.
+     * 
      * @param primaryStage 
      */
     public abstract void init(final Stage primaryStage);
@@ -71,6 +72,7 @@ public abstract class GameWorld {
                 
                 // remove dead actors
                 cleanupSprites();
+                
             }
         });
         
@@ -100,14 +102,39 @@ public abstract class GameWorld {
     protected void handleUpdate(Sprite sprite) {
     }
     
+    /**
+     * Checks each game sprite against another object to determine if a
+     * collision occured. The method will loop through each sprite
+     * and passing it to the handleCollision() method.
+     * 
+     * The derived class should override the handleCollision() method.
+     */
     protected void checkCollisions() {
+        spriteManager.resetCollisionCheck();
+        // check each sprite against other sprites
+        for(Sprite spriteA : spriteManager.getCollisions()) {
+            for(Sprite spriteB : spriteManager.getAllSprites()) {
+                if(handleCollision(spriteA, spriteB)) {
+                    break;
+                }
+            }
+        }
     }
     
+    /**
+     * When two sprite objects collide this method can determine the course
+     * of action. By default it returns false, meaning no collision occured.
+     * 
+     * @param spriteA - sprite to be compared ( checkCollisions() )
+     * @param spriteB - sprite to be compared ( checkCollisions() )
+     * @return 
+     */
     protected boolean handleCollision(Sprite spriteA, Sprite spriteB) {
         return false;
     }
     
     protected void cleanupSprites() {
+        spriteManager.cleanupSprites();
     }
     
     /**
@@ -144,17 +171,39 @@ public abstract class GameWorld {
         return gameLoop;
     }
     
+    /**
+     * Returns the sprite manager containing the sprite objects to
+     * manipulate in the game.
+     * 
+     * @return SpriteManager - The sprite manager.
+     */
     protected SpriteManager getSpriteManager() {
         return spriteManager;
     }
     
     protected void setGameLoop(Timeline gameLoop) {
+        this.gameLoop = gameLoop;
     }
     
+    /**
+     * Sets the JavaFX Scene. This is the game surface the 
+     * developer uses to add nodes to the game.
+     * 
+     * @param gameSurface - The main game surface
+     */
     protected void setGameSurface(Scene gameSurface) {
+        this.gameSurface = gameSurface;
     }
     
+    /**
+     * Sets the JavaFX Group that will hold all the nodes which are 
+     * rendered onto the game surface(Scene).
+     * 
+     * @param gameNodes - The root container having many child-nodes
+     *                    to be displayed in the scene area
+     */
     protected void setGameNodes(Group gameNodes) {
+        this.gameNodes = gameNodes;
     }
     
 }
