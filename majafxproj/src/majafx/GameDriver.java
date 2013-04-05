@@ -10,7 +10,7 @@ import majafx.engine.GameWorld;
  */
 public class GameDriver extends Application {
     
-    GameWorld gameWorld = new Game(60, "MajaFX - 0.01");
+    GameWorld gameWorld = new Game(60, "MajaFX 0.01");
     
     public static void main(String[] args) {
         launch(args);

@@ -26,7 +26,7 @@ public class Game extends GameWorld {
     @Override
     public void init(final Stage primaryStage) {
         // Sets the window title
-        primaryStage.setTitle(getName());
+        primaryStage.setTitle(getName() + " -- " + getFPS());
         
         // Create the scene
         setGameNodes(new Group());
