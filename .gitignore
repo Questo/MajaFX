@@ -1,8 +1,5 @@
 *.class
-.build.gradle.swp
-.gradle
-build
-_build
+
 .classpath
 .project
 .settings
@@ -12,10 +9,7 @@ bin
 *.iws
 out/
 .idea/
-/nbproject/private/
-/nbbuild/
-/dist/
-nbproject
+
 
 # Package Files #
 *.jar
