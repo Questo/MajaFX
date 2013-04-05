@@ -2,6 +2,7 @@ package majafx.engine;
 
 import java.util.ArrayList;
 import java.util.List;
+import javafx.animation.Animation;
 import javafx.scene.Node;
 
 /**
@@ -16,10 +17,13 @@ import javafx.scene.Node;
 public abstract class Sprite {
     
     /** Animations for the node */
-    public List animations = new ArrayList<>();
+    public List<Animation> animations = new ArrayList<>();
     
     /** Current display node */
     public Node node;
+    
+    public double vX = 0;
+    public double vY = 0;
     
     /** DEAD?! */
     public boolean isDead = false;
