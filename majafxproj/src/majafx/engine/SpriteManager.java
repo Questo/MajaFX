@@ -13,7 +13,7 @@ import java.util.Set;
  */
 public class SpriteManager {
     
-    private final static List<Sprite> SPRITE_LIST = new ArrayList<Sprite>();
+    private final static List<Sprite> SPRITE_LIST = new ArrayList<>();
     private static final List<Sprite> COLLISION_LIST = new ArrayList<>();
     private static final Set<Sprite> DEAD_SPRITES = new HashSet<>();
     
