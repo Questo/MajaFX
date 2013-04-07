@@ -10,6 +10,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import majafx.engine.GameWorld;
 import majafx.engine.Sprite;
+import majafx.engine.SpriteAnimation;
 import majafx.entities.Player;
 
 /**
@@ -49,6 +50,7 @@ public class Game extends GameWorld {
         getSpriteManager().addSprites(player);
         
         // Add player
+        setupPlayer(player);
         getGameNodes().getChildren().add(player.node);
     }
 
@@ -88,6 +90,13 @@ public class Game extends GameWorld {
     @Override
     protected void handleUpdate(Sprite sprite) {
         sprite.update();
+    }
+
+    private void setupPlayer(Player player) {
+        Animation walkUp = new SpriteAnimation(player.getPlayerImage(),
+                0, 0, 32, 64, 3);
+        
+        player.addAnimations(walkUp);
     }
     
 }
