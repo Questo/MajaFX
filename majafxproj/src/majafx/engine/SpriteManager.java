@@ -51,16 +51,8 @@ public class SpriteManager {
         DEAD_SPRITES.clear();
     }
     
-    public List<Sprite> getAllSprites() {
-        return SPRITE_LIST;
-    }
-    
-    public Set<Sprite> getDeadSprites() {
-        return DEAD_SPRITES;
-    }
-    
-    public List<Sprite> getCollisions() {
-        return COLLISION_LIST;
-    }
+    public List<Sprite> getAllSprites() { return SPRITE_LIST; }
+    public Set<Sprite> getDeadSprites() { return DEAD_SPRITES; }
+    public List<Sprite> getCollisions() { return COLLISION_LIST; }
     
 }
