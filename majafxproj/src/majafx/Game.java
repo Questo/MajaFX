@@ -1,10 +1,10 @@
 package majafx;
 
 import javafx.animation.Animation;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
@@ -22,11 +22,11 @@ public class Game extends GameWorld {
     private static final int WIDTH = 320;
     private static final int HEIGHT = WIDTH / 12 * 9;
     private static final int SCALE = 2;
- 
-    private Player player = new Player(
-            10,
-            ((WIDTH * SCALE)/2) - 16,
-            ((HEIGHT*SCALE)/2) - 32);
+    
+    private Image ss1 = new Image(getClass()
+            .getResourceAsStream("/res/spritesheet_trans.png"));
+    
+    private Player p1 = new Player(10, 320, 120, ss1, 32, 64, 4, 4);
     
     public Game(int fps, String name) {
         super(fps, name);
@@ -47,11 +47,11 @@ public class Game extends GameWorld {
         // Setup game input
         setupInput(primaryStage);
         
-        getSpriteManager().addSprites(player);
+        getSpriteManager().addSprites(p1);
         
         // Add player
-        setupPlayer(player);
-        getGameNodes().getChildren().add(player.node);
+        setupPlayer(p1);
+        getGameNodes().getChildren().add(p1.node);
     }
 
     private void setupInput(Stage primaryStage) {
@@ -60,26 +60,9 @@ public class Game extends GameWorld {
             @Override
             public void handle(KeyEvent event) {
                 if(event.getCode() == KeyCode.UP) {
-                    player.animations.get(0).stop();
-                    player.vY--;
-                    player.animations.get(0).play();
-                }
-                if(event.getCode() == KeyCode.DOWN) {
-                    player.animations.get(1).stop();
-                    player.vY++;
-                    player.animations.get(1).play();
-                }
-                if(event.getCode() == KeyCode.LEFT) {
-                    player.animations.get(2).stop();
-                    player.vX--;
-                    player.animations.get(2).play();
-                    
-                }
-                if(event.getCode() == KeyCode.RIGHT) {
-                    player.animations.get(3).stop();
-                    player.vX++;
-                    player.animations.get(3).play();
-                    
+                    p1.animations.get(0).stop();
+                    p1.vY--;
+                    p1.animations.get(0).play();
                 }
             }
         };
@@ -93,10 +76,10 @@ public class Game extends GameWorld {
     }
 
     private void setupPlayer(Player player) {
-        Animation walkUp = new SpriteAnimation(player.getPlayerImage(),
-                0, 0, 32, 64, 3);
+        Animation walkUp = new SpriteAnimation(p1.getPlayerImage(),
+                0, 0, p1.getWidth(), p1.getHeight(), 3);
         
-        player.addAnimations(walkUp);
+        p1.addAnimations(walkUp);
     }
     
 }

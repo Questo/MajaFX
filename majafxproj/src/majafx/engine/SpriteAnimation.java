@@ -21,6 +21,15 @@ public class SpriteAnimation extends Transition {
     private int count = 0;
     private int lastIndex;
     
+    /**
+     * 
+     * @param imageView
+     * @param offsetX
+     * @param offsetY
+     * @param width
+     * @param height
+     * @param count 
+     */
     public SpriteAnimation(
             ImageView imageView,
             int offsetX, int offsetY,
