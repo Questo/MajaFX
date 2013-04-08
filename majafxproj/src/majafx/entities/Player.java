@@ -71,23 +71,5 @@ public class Player extends Sprite {
     public int getHeight() { return height; }
     public int getColumn() { return col; }
     public int getRow() { return row; }
-    
-   /* private void setupAnimations() {
-        Animation walkUp = new SpriteAnimation(imgView, 0, 0, 32, 64, 3);
-        walkUp.setCycleCount(Animation.INDEFINITE);
 
-        Animation walkDown = new SpriteAnimation(imgView, 96, 0, 32, 64, 3);
-        walkDown.setCycleCount(Animation.INDEFINITE);
-
-        Animation walkLeft = new SpriteAnimation(imgView, 192, 0, 32, 64, 3);
-        walkLeft.setCycleCount(Animation.INDEFINITE);
-
-        Animation walkRight = new SpriteAnimation(imgView, 288, 0, 32, 64, 3);
-        walkRight.setCycleCount(Animation.INDEFINITE);
-
-        animations.add(walkUp);
-        animations.add(walkDown);
-        animations.add(walkLeft);
-        animations.add(walkRight);
-    }*/
 }
