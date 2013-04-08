@@ -155,35 +155,12 @@ public abstract class GameWorld {
         return gameNodes;
     }
     
-    /**
-     * Returns the name of the game.
-     * @return 
-     */
-    public String getName() {
-        return NAME;
-    }
+    public String getName() { return NAME; }
+    protected int getFPS() { return FPS; }
+    protected Timeline getGameLoop() { return gameLoop; }
+    protected SpriteManager getSpriteManager() { return spriteManager; }
     
-    protected int getFPS() {
-        return FPS;
-    }
-    
-    protected Timeline getGameLoop() {
-        return gameLoop;
-    }
-    
-    /**
-     * Returns the sprite manager containing the sprite objects to
-     * manipulate in the game.
-     * 
-     * @return SpriteManager - The sprite manager.
-     */
-    protected SpriteManager getSpriteManager() {
-        return spriteManager;
-    }
-    
-    protected void setGameLoop(Timeline gameLoop) {
-        this.gameLoop = gameLoop;
-    }
+    protected void setGameLoop(Timeline gameLoop) { this.gameLoop = gameLoop; }
     
     /**
      * Sets the JavaFX Scene. This is the game surface the 
