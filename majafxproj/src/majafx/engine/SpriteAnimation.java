@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package majafx.engine;
 
 import javafx.animation.Interpolator;
@@ -23,12 +19,12 @@ public class SpriteAnimation extends Transition {
     
     /**
      * 
-     * @param imageView
-     * @param offsetX
-     * @param offsetY
-     * @param width
-     * @param height
-     * @param count 
+     * @param imageView - Sprite image view
+     * @param offsetX - X value of sprite
+     * @param offsetY - Y value of sprite
+     * @param width - Width of sprite
+     * @param height - Height of sprite
+     * @param count  - How many frames should be animated
      */
     public SpriteAnimation(
             ImageView imageView,
