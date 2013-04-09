@@ -1,12 +1,13 @@
-package majafx.engine;
+package majafx.entities;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javafx.animation.Animation;
 import javafx.scene.Node;
 
 /**
- * The Sprite class represents a image or node to be displayed.
+ * The Sprite class represents all entities in the game world.
  * A sprite will be will contain a velocity for the image/node to move
  * across the scene. The game loop will call the update() and collide()
  * at every keyframe interval. A list of animations can be used during
@@ -41,6 +42,10 @@ public abstract class Sprite {
      */
     public boolean collide(Sprite other) {
         return false;
+    }
+    
+    public void addAnim(Animation... anim) {
+        animations.addAll(Arrays.asList(anim));
     }
     
 }

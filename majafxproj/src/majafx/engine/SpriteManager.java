@@ -1,5 +1,6 @@
 package majafx.engine;
 
+import majafx.entities.Sprite;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;

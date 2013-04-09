@@ -1,5 +1,6 @@
 package majafx.engine;
 
+import majafx.entities.Sprite;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
